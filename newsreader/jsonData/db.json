@@ -1,0 +1,45 @@
+{
+    
+    "categories":[
+        {
+            "id":1,
+            "type": "cat1"
+        },
+        {
+            "id":2,
+            "type": "cat2"
+        },
+        {
+            "id":3,
+            "type": "cat3"
+        },
+        {
+            "id":4,
+            "type": "cat4"
+        }
+
+    ],
+    "article":[
+        {
+            "id":1,
+            "liked":false,
+            "content":"Test data for news reader app",
+            "comments":[
+                {
+                    "id":1,
+                    "body":"test comment"
+                }
+            ]
+
+        }
+    ],
+    "headlines":[
+        {
+            "id":1,
+            "categories":2,
+            "headline":"Test Data",
+            "article":1
+        }
+    ]
+
+}
