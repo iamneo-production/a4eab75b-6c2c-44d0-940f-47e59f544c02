@@ -1,3 +1,4 @@
 {
-    "/api/news/*": "/$1"
+    "/api/news/*": "/$1",
+    "/article/:articleid/comments": "/article/:articleid/comments?article=:articleid"
 }
