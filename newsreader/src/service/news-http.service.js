@@ -1,7 +1,7 @@
 import http from "../http-common";
 
 export const getAllCategories = () => {
-    return http.get("/api/news/countries");
+    return http.get("/api/news/categories");
 };
 
 export const getHeadlinesByCategory = (categoryIds) => {

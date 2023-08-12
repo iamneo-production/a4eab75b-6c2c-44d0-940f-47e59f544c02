@@ -54,13 +54,13 @@
         {
             "id":1,
             "categories":2,
-            "headline":"Test Data- 1",
+            "content":"Test Data- 1",
             "article":2
         },
         {
             "id":2,
             "categories":2,
-            "headline":"Test Data- 2",
+            "content":"Test Data- 2",
             "article":1
         }
     ]
