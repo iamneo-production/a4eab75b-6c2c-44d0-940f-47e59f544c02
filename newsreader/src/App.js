@@ -3,6 +3,7 @@ import './App.css';
 
 import Categories from './components/categories-page.component';
 import Headlines from './components/headlines-page.component';
+import Article from './components/article-page.component';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -27,7 +28,7 @@ function App() {
           {/* <Route path="/" element={<Categories />}> */}
             <Route index element={<Categories />} />
             <Route path=":categoryid/headlines" element={<Headlines />} />
-            {/* <Route path="contact" element={<Contact />} /> */}
+            <Route path="article/:articleid" element={<Article />} />
             {/* <Route path="*" element={<NoPage />} /> */}
           {/* </Route> */}
         </Routes>
