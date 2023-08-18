@@ -41,10 +41,10 @@ function UserLogin() {
   };
 
   return (
-    <>
-      <center>
+    <center>
+      <div>
         <p className="title">Login Form</p>
-      </center>
+      </div>
 
       <form className="App" onSubmit={handleSubmit(onSubmit)}>
         <input type="email" {...register("email", { required: true })} />
@@ -57,7 +57,7 @@ function UserLogin() {
 
         <input type="submit" style={{ backgroundColor: "#a1eafb" }} />
       </form>
-    </>
+    </center>
   );
 }
 

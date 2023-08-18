@@ -1,6 +1,6 @@
-import React, { useEffect} from "react";
+import React, { useEffect } from "react";
 
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import { setLoggedUser } from "../service/news-http.service";
 
 function Logout() {

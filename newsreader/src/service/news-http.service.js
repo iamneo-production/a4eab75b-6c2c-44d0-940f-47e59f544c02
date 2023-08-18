@@ -17,21 +17,21 @@ export const getAllCategories = () => {
 };
 
 export const getHeadlinesByCategory = (categoryIds) => {
-    return http.get(`/api/news/headlines?categories=${categoryIds}`);
+    return http.get(`/api/news/headlines?categorieId=${categoryIds}`);
 }
 
 export const getArticleById = (articleId) => {
-    return http.get(`/api/news/article/${articleId}?_embed=likes&_embed=comments`);
+    return http.get(`/api/news/articles/${articleId}?_embed=likes&_embed=comments`);
 }
 
 export const getHeadlineByArticleId = (articleId) => {
-    return http.get(`/api/news/headlines?article=${articleId}`);
+    return http.get(`/api/news/headlines?articleId=${articleId}`);
 }
 
 export const getCommentsByArticleId = (articleId) => {
-    return http.get(`/api/news/comments?article=${articleId}`);
+    return http.get(`/api/news/comments?articleId=${articleId}`);
 }
 
 export const getLikeOnArticle = (userId) => {
-    return http.post(`/api/news/liked?user=${userId}`);
+    return http.post(`/api/news/likes?userId=${userId}`);
 }
