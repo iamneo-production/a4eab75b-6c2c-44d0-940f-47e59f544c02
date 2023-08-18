@@ -1,5 +1,17 @@
 import http from "../http-common";
 
+export const userLogin = (data) => {
+    return http.get("/users?email=" + data.email + "&password=" + data.password);
+};
+
+export const setLoggedUser = (user) => {
+    return http.post('/loggeduser',user);
+}
+
+export const getLoggedUser = () => {
+    return http.get('/loggeduser');
+}
+
 export const getAllCategories = () => {
     return http.get("/api/news/categories");
 };

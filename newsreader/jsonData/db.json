@@ -1,68 +1,85 @@
 {
-    
-    "categories":[
-        {
-            "id":1,
-            "type": "cat1"
-        },
-        {
-            "id":2,
-            "type": "cat2"
-        },
-        {
-            "id":3,
-            "type": "cat3"
-        },
-        {
-            "id":4,
-            "type": "cat4"
-        }
-
-    ],
-    "article":[
-        {
-            "id":1,
-            "liked":false,
-            "content":"Test data for news reader app"
-
-        },
-        {
-            "id":2,
-            "liked":false,
-            "content":"Test data for news reader app"
-        }
-    ],
-    "comments":[
-        
-        {
-            "id":1,
-            "body":"test comment 1",
-            "article":1
-        },
-        {
-            "id":2,
-            "body":"test comment 2",
-            "article":2
-        },
-        {
-            "id":3,
-            "body":"test comment 3",
-            "article":1
-        }
-    ],
-    "headlines":[
-        {
-            "id":1,
-            "categories":2,
-            "content":"Test Data- 1",
-            "article":2
-        },
-        {
-            "id":2,
-            "categories":2,
-            "content":"Test Data- 2",
-            "article":1
-        }
-    ]
-
+  "loggeduser": {},
+  "categories": [
+    {
+      "id": 1,
+      "type": "cat1"
+    },
+    {
+      "id": 2,
+      "type": "cat2"
+    },
+    {
+      "id": 3,
+      "type": "cat3"
+    },
+    {
+      "id": 4,
+      "type": "cat4"
+    }
+  ],
+  "article": [
+    {
+      "id": 1,
+      "liked": false,
+      "content": "Test data for news reader app"
+    },
+    {
+      "id": 2,
+      "liked": false,
+      "content": "Test data for news reader app"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "user": 1,
+      "body": "test comment 1",
+      "article": 1
+    },
+    {
+      "id": 2,
+      "user": 1,
+      "body": "test comment 2",
+      "article": 2
+    },
+    {
+      "id": 3,
+      "user": 1,
+      "body": "test comment 3",
+      "article": 1
+    }
+  ],
+  "headlines": [
+    {
+      "id": 1,
+      "categories": 2,
+      "headline": "Test Data- 1",
+      "article": 2
+    },
+    {
+      "id": 2,
+      "categories": 2,
+      "headline": "Test Data- 2",
+      "article": 1
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "chinmay",
+      "email": "chinmay@gmail.com",
+      "password": "chinmay"
+    }
+  ],
+  "liked": [
+    {
+      "id": 1,
+      "article": [
+        1,
+        2
+      ],
+      "user": 1
+    }
+  ]
 }

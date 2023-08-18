@@ -38,7 +38,7 @@ const Article = () => {
     } else {
         return <div>
             {headline ? (
-            <h1>{headline[0].content}</h1>
+            <h1>{headline[0].headline}</h1>
         ) : (
             <div>Error fetching headline</div>
         )}

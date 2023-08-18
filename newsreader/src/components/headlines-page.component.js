@@ -10,12 +10,11 @@ const Headlines = () => {
 
     useEffect(()=> {
         getHeadlinesByCategory(categoryid).then(res => {
+            console.log(res.data);
             setHeadlines(res.data);
-            setIsLoading(false);
         }).catch(err => {
-            setIsLoading(false);
             console.error("Error fetching headlines: ", err);
-        })
+        }).finally(() => setIsLoading(false))
     })
 
     if(isLoading){
@@ -24,7 +23,7 @@ const Headlines = () => {
         return (
         headlines ? (
             <div>{headlines.map((headline) => 
-                <a href={"/article/"+headline.article}><li>{headline.content}</li></a>
+                <a href={"/article/"+headline.article} key={headline.id}><li>{headline.headline}</li></a>
             )}</div>
         ) : (
             <div>Error fetching data</div>
