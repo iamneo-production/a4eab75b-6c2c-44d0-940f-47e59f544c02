@@ -1,85 +1,89 @@
 {
-  "loggeduser": {},
-  "categories": [
-    {
-      "id": 1,
-      "type": "cat1"
-    },
-    {
-      "id": 2,
-      "type": "cat2"
-    },
-    {
-      "id": 3,
-      "type": "cat3"
-    },
-    {
-      "id": 4,
-      "type": "cat4"
-    }
+  "loggeduser":{},
+  "categories":[
+      {
+          "id":1,
+          "type": "cat1"
+      },
+      {
+          "id":2,
+          "type": "cat2"
+      },
+      {
+          "id":3,
+          "type": "cat3"
+      },
+      {
+          "id":4,
+          "type": "cat4"
+      }
+
   ],
-  "article": [
-    {
-      "id": 1,
-      "liked": false,
-      "content": "Test data for news reader app"
-    },
-    {
-      "id": 2,
-      "liked": false,
-      "content": "Test data for news reader app"
-    }
+  "articles":[
+      {
+          "id":1,
+          "content":"Test data for news reader app"
+
+      },
+      {
+          "id":2,
+          "content":"Test data for news reader app"
+      }
   ],
-  "comments": [
-    {
-      "id": 1,
-      "user": 1,
-      "body": "test comment 1",
-      "article": 1
-    },
-    {
-      "id": 2,
-      "user": 1,
-      "body": "test comment 2",
-      "article": 2
-    },
-    {
-      "id": 3,
-      "user": 1,
-      "body": "test comment 3",
-      "article": 1
-    }
+  "comments":[
+      
+      {
+          "id":1,
+          "userId":1,
+          "body":"test comment 1",
+          "articleId":1
+      },
+      {
+          "id":2,
+          "userId":1,
+          "body":"test comment 2",
+          "articleId":2
+      },
+      {
+          "id":3,
+          "userId":1,
+          "body":"test comment 3",
+          "articleId":1
+      }
   ],
-  "headlines": [
-    {
-      "id": 1,
-      "categories": 2,
-      "headline": "Test Data- 1",
-      "article": 2
-    },
-    {
-      "id": 2,
-      "categories": 2,
-      "headline": "Test Data- 2",
-      "article": 1
-    }
+  "headlines":[
+      {
+          "id":1,
+          "categorieId":2,
+          "headline":"Test Data- 1",
+          "articleId":2
+      },
+      {
+          "id":2,
+          "categorieId":2,
+          "headline":"Test Data- 2",
+          "articleId":1
+      }
   ],
-  "users": [
-    {
-      "id": 1,
-      "name": "chinmay",
-      "email": "chinmay@gmail.com",
-      "password": "chinmay"
-    }
+  "users":[
+      {
+          "id":1,
+          "name":"chinmay",
+          "email":"chinmay@gmail.com",
+          "password" : "chinmay"
+      }
   ],
-  "liked": [
-    {
-      "id": 1,
-      "article": [
-        1,
-        2
-      ],
-      "user": 1
-    }
+  "likes":[
+      {
+          "id":1,
+          "articleId":1,
+          "userId":1
+      },
+      {
+          "id":2,
+          "articleId":1,
+          "userId":2
+      }
   ]
+
 }

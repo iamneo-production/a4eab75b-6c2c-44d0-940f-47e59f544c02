@@ -8,6 +8,8 @@ const Article = () => {
     const [headline, setHeadline] = useState(null);
     const [article, setArticle] = useState(null);
     const [comments, setComments] = useState(null);
+    const [likes, setLikes] = useState(null);
+    const [isliked, setIsLiked] = useState(false);
     const [isArticleLoading, setIsArticleLoading] = useState(true);
     const [user, setUser] = useState(null);
 
@@ -15,6 +17,10 @@ const Article = () => {
         getLoggedUser().then(res => setUser(res.data));
         getArticleById(articleid).then(res => {
             setArticle(res.data);
+            setComments(res.data.comments);
+            setLikes(res.data.likes);
+            var like = res.data.likes.filter(like => like.userId=user.id);
+            console.log(like);
         }).catch(err => {
             console.error("Error fetching article: ", err);
         }).finally(() => setIsLoading(false))
@@ -26,11 +32,11 @@ const Article = () => {
             console.error("Error fetching headline: ", err);
         })
 
-        getCommentsByArticleId(articleid).then(res => {
-            setComments(res.data);
-        }).catch(err => {
-            console.error("Error fetching comments: ", err);
-        })
+        // getCommentsByArticleId(articleid).then(res => {
+        //     setComments(res.data);
+        // }).catch(err => {
+        //     console.error("Error fetching comments: ", err);
+        // })
     })
 
     if(isArticleLoading){

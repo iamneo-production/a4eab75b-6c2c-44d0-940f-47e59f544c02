@@ -21,7 +21,7 @@ export const getHeadlinesByCategory = (categoryIds) => {
 }
 
 export const getArticleById = (articleId) => {
-    return http.get(`/api/news/article/${articleId}`);
+    return http.get(`/api/news/article/${articleId}?_embed=likes&_embed=comments`);
 }
 
 export const getHeadlineByArticleId = (articleId) => {
@@ -32,6 +32,6 @@ export const getCommentsByArticleId = (articleId) => {
     return http.get(`/api/news/comments?article=${articleId}`);
 }
 
-export const postLikeOnArticle = (articleId) => {
-    return http.post(`/api/news/article/${articleId}/like`);
+export const getLikeOnArticle = (userId) => {
+    return http.post(`/api/news/liked?user=${userId}`);
 }
