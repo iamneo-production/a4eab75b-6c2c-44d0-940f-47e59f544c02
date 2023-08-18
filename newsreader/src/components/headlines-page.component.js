@@ -7,8 +7,10 @@ const Headlines = () => {
     const { categoryid } = useParams();
     const [headlines, setHeadlines] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
+    const [user, setUser] = useState(null);
 
     useEffect(()=> {
+        getLoggedUser().then(res => setUser(res.data));
         getHeadlinesByCategory(categoryid).then(res => {
             console.log(res.data);
             setHeadlines(res.data);
@@ -21,13 +23,16 @@ const Headlines = () => {
         return <div>Loding data</div>
     } else {
         return (
+            <div>
+                <Navbar user={user}/>
         headlines ? (
             <div>{headlines.map((headline) => 
                 <a href={"/article/"+headline.article} key={headline.id}><li>{headline.headline}</li></a>
             )}</div>
         ) : (
             <div>Error fetching data</div>
-        ))
+        )
+        </div>)
     }
 }
 

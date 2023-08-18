@@ -9,15 +9,15 @@ const Article = () => {
     const [article, setArticle] = useState(null);
     const [comments, setComments] = useState(null);
     const [isArticleLoading, setIsArticleLoading] = useState(true);
+    const [user, setUser] = useState(null);
 
     useEffect(()=> {
+        getLoggedUser().then(res => setUser(res.data));
         getArticleById(articleid).then(res => {
             setArticle(res.data);
-            setIsArticleLoading(false);
         }).catch(err => {
-            setIsArticleLoading(false);
             console.error("Error fetching article: ", err);
-        })
+        }).finally(() => setIsLoading(false))
 
         
         getHeadlineByArticleId(articleid).then(res => {
@@ -36,7 +36,9 @@ const Article = () => {
     if(isArticleLoading){
         return <div>Loding data</div>
     } else {
-        return <div>
+        return (
+        <div>
+            <Navbar user={user}/>
             {headline ? (
             <h1>{headline[0].headline}</h1>
         ) : (
@@ -54,7 +56,7 @@ const Article = () => {
         ) : (
             <div>Error fetching comments</div>
         )}
-        </div>
+        </div>);
     }
 }
 
