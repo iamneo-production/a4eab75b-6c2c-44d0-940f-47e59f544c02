@@ -39,3 +39,7 @@ export const getCommentsByArticleId = (articleId) => {
 export const postLikeOnArticle = (like) => {
     return http.post(`/api/news/likes`,like);
 }
+
+export const postCommentOnArticle = (data) => {
+    return http.post(`/api/news/comments`,data);
+}

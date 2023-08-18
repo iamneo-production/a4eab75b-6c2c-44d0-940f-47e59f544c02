@@ -1,15 +1,17 @@
 //React imports
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import {
     getArticleById,
     getHeadlineByArticleId,
     getLoggedUser,
+    postCommentOnArticle,
     postLikeOnArticle,
 } from "../service/news-http.service";
 import Navbar from "./navbar.component";
 
 const Article = () => {
+    const commentRef = useRef(null);
     const { articleid } = useParams();
     const [headline, setHeadline] = useState(null);
     const [article, setArticle] = useState(null);
@@ -55,11 +57,24 @@ const Article = () => {
 
     const postLike = () => {
         let like = {
-            articleId: article.id,
-            userId: user.id,
             id: null,
+            articleId: article.id,
+            userId: user.id
         };
-        postLikeOnArticle(like).then((res) => setLikes([...likes, res.data]));
+        postLikeOnArticle(like).then((res) => setLikes([...likes, res.data])).catch(err => window.alert("Error!"));
+    };
+
+    const postComment = () => {
+        const comment = commentRef.current.value;
+        if(comment.trim().length > 0){
+            let data = {
+                id: null,
+                userId: user.id,
+                body: comment,
+                articleId: article.id
+            };
+            postCommentOnArticle(data).then((res) => setComments([...comments, res.data])).catch(err => window.alert("Error!"));
+        }
     };
 
     if (isArticleLoading) {
@@ -93,6 +108,19 @@ const Article = () => {
                 ) : (
                     <div>No comments</div>
                 )}
+                {user ?
+                    <form onSubmit={postComment}>
+                    <div>
+                      <label>
+                        Comment:
+                        <input type="text" ref={commentRef} />
+                      </label>
+                    </div>
+                    <button type="submit">Submit</button>
+                    </form>
+                    :
+                    ""
+                }
             </div>
         );
     }
