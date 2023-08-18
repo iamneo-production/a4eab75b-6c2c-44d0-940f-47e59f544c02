@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {
     getArticleById,
-    getCommentsByArticleId,
     getHeadlineByArticleId,
     getLoggedUser,
     postLikeOnArticle,
@@ -47,7 +46,7 @@ const Article = () => {
 
     useEffect(() => {
         if (user != null) {
-            var like = likes.filter((like) => like.userId === user.id);
+            let like = likes.filter((like) => like.userId === user.id);
             if (like.length != 0) {
                 setIsLiked(true);
             }
@@ -55,7 +54,7 @@ const Article = () => {
     }, [user, likes]);
 
     const postLike = () => {
-        var like = {
+        let like = {
             articleId: article.id,
             userId: user.id,
             id: null,

@@ -30,7 +30,7 @@ const Categories = () => {
         {categories ? (
           <div>
             {categories.map((category) => (
-              <a href={category.id + "/headlines"}>
+              <a href={category.id + "/headlines"} key={category.id}>
                 <li>{category.type}</li>
               </a>
             ))}

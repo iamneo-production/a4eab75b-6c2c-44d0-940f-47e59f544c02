@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { useForm } from "react-hook-form";
 
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { setLoggedUser, userLogin } from "../service/news-http.service";
 
@@ -13,12 +13,9 @@ function UserLogin() {
     formState: { errors },
   } = useForm();
 
-  const [isLoading, setIsLoading] = useState(false);
-
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    setIsLoading(true);
 
     userLogin(data)
       .then((response) => {
@@ -37,7 +34,6 @@ function UserLogin() {
         )
       )
 
-      .finally(() => setIsLoading(false));
   };
 
   return (
