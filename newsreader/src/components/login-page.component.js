@@ -43,13 +43,15 @@ function UserLogin() {
       </div>
 
       <form className="App" onSubmit={handleSubmit(onSubmit)}>
-        <input type="email" {...register("email", { required: true })} />
+        <lable>Email:</lable>
+        <input type="email" {...register("email", { required: true })} /><br></br>
 
         {errors.email && (
           <span style={{ color: "red" }}>Email is mandatory</span>
         )}
 
-        <input type="password" {...register("password")} />
+        <lable>Password:</lable>
+        <input type="password" {...register("password")} /><br></br>
 
         <input type="submit" style={{ backgroundColor: "#a1eafb" }} />
       </form>

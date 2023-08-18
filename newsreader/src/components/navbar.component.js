@@ -1,23 +1,21 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
-
 function Navbar({ user }) {
   return (
     <nav className="navbar">
       <div className="logo">
-        <Link to="/">News Reader</Link>
+        <a href="/">News Reader</a>
       </div>
 
       <ul className="nav-links">
         {user == null || JSON.stringify(user) === "{}" ? (
           <>
             <li>
-              <Link to="/login">Login</Link>
+              <a href="/login">Login</a>
             </li>
 
             <li>
-              <Link to="/register">Sign Up</Link>
+              <a href="/register">Sign Up</a>
             </li>
           </>
         ) : (
@@ -25,7 +23,7 @@ function Navbar({ user }) {
             <li>Hello {user.name}</li>
 
             <li>
-              <Link to="/logout">Logout</Link>
+              <a href="/logout">Logout</a>
             </li>
           </>
         )}

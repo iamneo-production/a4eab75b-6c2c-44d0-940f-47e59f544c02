@@ -2,7 +2,11 @@ import http from "../http-common";
 
 export const userLogin = (data) => {
     return http.get("/users?email=" + data.email + "&password=" + data.password);
-};
+}
+
+export const userRegister = (data) => {
+    return http.post("/users",data);
+}
 
 export const setLoggedUser = (user) => {
     return http.post('/loggeduser',user);
@@ -14,7 +18,7 @@ export const getLoggedUser = () => {
 
 export const getAllCategories = () => {
     return http.get("/api/news/categories");
-};
+}
 
 export const getHeadlinesByCategory = (categoryIds) => {
     return http.get(`/api/news/headlines?categorieId=${categoryIds}`);
