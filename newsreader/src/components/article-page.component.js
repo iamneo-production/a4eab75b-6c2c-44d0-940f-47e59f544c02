@@ -1,6 +1,6 @@
 //React imports
 import React, { useEffect, useRef, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
     getArticleById,
     getHeadlineByArticleId,
@@ -20,7 +20,7 @@ const Article = () => {
     const [isliked, setIsLiked] = useState(false);
     const [isArticleLoading, setIsArticleLoading] = useState(true);
     const [user, setUser] = useState(null);
-
+    const navigate = useNavigate();
     useEffect(() => {
         getArticleById(articleid)
             .then((res) => {
@@ -30,11 +30,12 @@ const Article = () => {
             })
             .catch((err) => {
                 console.error("Error fetching article: ", err);
+                navigate('/error');
             })
             .finally(() => setIsArticleLoading(false));
 
         getLoggedUser().then((res) =>
-            JSON.stringify(res.data) != "{}" ? setUser(res.data) : ""
+            JSON.stringify(res.data) !== "{}" ? setUser(res.data) : ""
         );
 
         getHeadlineByArticleId(articleid)
@@ -44,12 +45,12 @@ const Article = () => {
             .catch((err) => {
                 console.error("Error fetching headline: ", err);
             });
-    }, []);
+    }, [articleid]);
 
     useEffect(() => {
         if (user != null) {
             let like = likes.filter((like) => like.userId === user.id);
-            if (like.length != 0) {
+            if (like.length !== 0) {
                 setIsLiked(true);
             }
         }
@@ -83,7 +84,7 @@ const Article = () => {
         return (
             <div>
                 <Navbar user={user} />
-                {headline && headline.length != 0 ? (
+                {headline && headline.length !== 0 ? (
                     <h1>{headline[0].headline}</h1>
                 ) : (
                     <div>Error fetching headline</div>

@@ -15,6 +15,7 @@ const Headlines = () => {
   const [headlines, setHeadlines] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getLoggedUser().then((res) => setUser(res.data));
@@ -25,9 +26,10 @@ const Headlines = () => {
       })
       .catch((err) => {
         console.error("Error fetching headlines: ", err);
+        navigate('/error')
       })
       .finally(() => setIsLoading(false));
-  }, []);
+  }, [categoriesIds]);
 
   if (isLoading) {
     return <div>Loding data</div>;

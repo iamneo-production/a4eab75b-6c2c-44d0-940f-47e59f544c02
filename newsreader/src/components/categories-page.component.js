@@ -40,6 +40,7 @@ const Categories = () => {
       })
       .catch((err) => {
         console.error("Error fetching categories: ", err);
+        navigate('/error');
       })
       .finally(() => setIsLoading(false));
   }, []);
