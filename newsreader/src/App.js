@@ -12,10 +12,11 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
+          
             <Route index element={<Categories />} />
             <Route path="login" element={<UserLogin />} />
             <Route path="logout" element={<Logout />} />
-            <Route path=":categoryid/headlines" element={<Headlines />} />
+            <Route path="headlines/:categoriesParam" element={<Headlines />} />
             <Route path="article/:articleid" element={<Article />} />
             
         </Routes>

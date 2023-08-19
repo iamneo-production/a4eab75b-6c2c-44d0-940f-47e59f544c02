@@ -8,14 +8,17 @@ import {
 import Navbar from "./navbar.component";
 
 const Headlines = () => {
-  const { categoryid } = useParams();
+  const { categoriesParam } = useParams();
+  const categories = categoriesParam.split(',')
+  const categoriesIds = categories.join('&categorieId=');
+
   const [headlines, setHeadlines] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
 
   useEffect(() => {
     getLoggedUser().then((res) => setUser(res.data));
-    getHeadlinesByCategory(categoryid)
+    getHeadlinesByCategory(categoriesIds)
       .then((res) => {
         console.log(res.data);
         setHeadlines(res.data);
@@ -32,7 +35,7 @@ const Headlines = () => {
     return (
       <div>
         <Navbar user={user} />
-        {headlines && headlines.length != 0 ? (
+        {headlines && headlines.length !== 0 ? (
           <div>
             {headlines.map((headline) => (
               <a href={"/article/" + headline.articleId} key={headline.id}>
